@@ -1,1 +1,1 @@
-# meanSTACK
+# MEAN STACK
