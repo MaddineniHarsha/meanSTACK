@@ -31,9 +31,11 @@ class RecommendCourses:
     # create CountVectorizer
     countvect = CountVectorizer()
     cv_mat = countvect.fit_transform(df['clean_title'])
-
+    
+    # feature_names = countvect.get_feature_names_out()
+    # df_cv_words = pd.DataFrame(cv_mat.todense(), columns=feature_names)
     # create CV words
-    df_cv_words = pd.DataFrame(cv_mat.todense(),columns=countvect.get_feature_names())
+    df_cv_words = pd.DataFrame(cv_mat.todense(),columns=countvect.get_feature_names_out())
     self.df = df
     self.cosine_sim_mat = cosine_similarity(cv_mat)
     print("Data loaded Successfully")
